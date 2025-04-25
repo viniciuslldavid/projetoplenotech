@@ -2,15 +2,19 @@ import React from "react";
 
 export default function Sobre() {
   return (
-    <section id="sobre" className="py-20 bg-white flex flex-col items-center justify-center text-center">
-      <div className="max-w-2xl px-4">
-        <h2 className="text-3xl font-bold text-black mb-4">Sobre a Plenotech</h2>
-        <p className="text-gray-700 mb-2">
-          Somos uma empresa de Uberlândia apaixonada por tecnologia.
-        </p>
-        <p className="text-gray-700">
-          Ajudamos pessoas e negócios a evoluírem com soluções digitais.
-        </p>
+    <section id="sobre" className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8" data-aos="zoom-in-up">
+          Sobre a Plenotech
+        </h2>
+        <div className="max-w-3xl mx-auto" data-aos="fade-up" tabIndex={0}>
+          <p className="text-lg mb-4">
+            Somos uma empresa de Uberlândia apaixonada por tecnologia.
+          </p>
+          <p className="text-lg">
+            Desde 2020, ajudamos pessoas e negócios a evoluírem com soluções digitais.
+          </p>
+        </div>
       </div>
     </section>
   );
