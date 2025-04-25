@@ -1,31 +1,41 @@
+
 import React from "react";
-import { FaDesktop, FaMobileAlt, FaGlobe } from "react-icons/fa";
+
+const services = [
+  {
+    title: "Manutenção de Computadores",
+    description: "Formatamos, limpamos e otimizamos seu equipamento para máximo desempenho.",
+    image: "https://www.findup.com.br/wp-content/uploads/2020/11/iStock-625135580.jpg"
+  },
+  {
+    title: "Criação de Sites",
+    description: "Desenvolvimento de sites responsivos, modernos e rápidos para sua presença online.",
+    image: "https://ribnet.com.br/wp-content/uploads/2021/09/banner-criacao-de-sites-1.png"
+  },
+  {
+    title: "Desenvolvimento de Aplicativos",
+    description: "Aplicativos personalizados para Android, iOS e web com performance e design.",
+    image: "https://source.unsplash.com/600x400/?app,development"
+  }
+];
 
 export default function Services() {
-  const servicos = [
-    { icon: "fas fa-desktop", title: "Manutenção de Computadores", desc: "Reparos, upgrades e manutenção preventiva." },
-    { icon: "fas fa-mobile-alt", title: "Desenvolvimento de Apps", desc: "Apps personalizados para conectar você aos clientes." },
-    { icon: "fas fa-globe", title: "Desenvolvimento de Sites", desc: "Sites modernos e otimizados para negócios." }
-  ];
-
   return (
-    <section id="servicos" className="bg-gray-100 py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-10">Nossos Serviços</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {servicos.map((s, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition"
-              data-aos="zoom-in"
-            >
-              <i className={`${s.icon} text-green-600 text-4xl mb-4`}></i>
-              <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-              <p>{s.desc}</p>
+    <section id="servicos" className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4 text-center mb-12">
+        <h2 className="text-4xl font-bold mb-4">Nossos Serviços</h2>
+        <p className="text-lg text-gray-700">Confira como podemos te ajudar:</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+        {services.map((service, index) => (
+          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+            <img src={service.image} alt={service.title} className="w-full h-48 object-cover scale-110" />
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-600">{service.description}</p>
             </div>
-          ))}
-
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

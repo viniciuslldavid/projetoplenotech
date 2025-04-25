@@ -5,10 +5,8 @@ export default function Navbar() {
     <nav className="bg-green-600 text-white p-4 sticky top-0 z-10 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold">
-          <button className="md:hidden text-white" aria-label="Abrir menu de navegação">☰</button>
-          <a href="#home">
-            <img src="/logo.jpg" alt="Logo da Plenotech" className="h-10 inline-block" />
-          </a>
+          
+          
         </div>
         <ul className="hidden md:flex space-x-6">
           <li><a href="#home" className="hover:text-green-200">Home</a></li>
