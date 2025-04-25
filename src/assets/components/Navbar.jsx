@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../images/logo.png"; // Verifique se o caminho está correto
+import logo from "../images/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,14 +9,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md w-full fixed top-0 z-50 h-24">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+    <nav className="bg-white shadow-md w-full fixed top-0 z-50 h-14">
+      <div className="max-w-7xl mx-auto pl-2 pr-4 py-1 flex items-center justify-between">
         {/* Logo à esquerda */}
         <div className="flex items-center">
           <img
             src={logo}
             alt="PlenoTech Logo"
-            className="h-20 w-auto max-h-20 object-contain sm:h-14 sm:max-h-14"
+            className="h-10 w-auto max-h-10 object-contain sm:h-8 sm:max-h-8"
           />
         </div>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
         <ul
           className={`${
             isOpen ? "block" : "hidden"
-          } md:flex md:space-x-8 text-sm font-medium text-gray-800 absolute md:static top-24 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}
+          } md:flex md:space-x-8 text-sm font-medium text-gray-800 absolute md:static top-14 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}
         >
           <li className="md:inline-block block mb-2 md:mb-0">
             <a href="#inicio" className="hover:text-blue-500">
