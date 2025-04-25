@@ -1,4 +1,9 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Manutencao from "./pages/servicos/Manutencao";
+import Sites from "./pages/servicos/Sites";
+import Apps from "./pages/servicos/Apps";
+import ComoNosEncontrar from "./assets/components/ComoNosEncontrar";
 import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
 import Sobre from "./assets/components/Sobre";
@@ -16,28 +21,43 @@ export default function App() {
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
+
   useEffect(() => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
       });
     });
   }, []);
 
   return (
-    <div className="font-sans">
-      <Navbar />
-      <Hero />
-      <Sobre />
-      <Services />
-      <Diferenciais />
-      <Portfolio />
-      <Testimonials />
-      <FAQ />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        {/* Página inicial com todas as seções */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Hero />
+              <Sobre />
+              <Services />
+              <Diferenciais />
+              <Portfolio />
+              <Testimonials />
+              <FAQ />
+              <ComoNosEncontrar /> {/* <- adicionado aqui */}
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        {/* Rotas individuais dos serviços */}
+        <Route path="/servicos/manutencao" element={<Manutencao />} />
+        <Route path="/servicos/sites" element={<Sites />} />
+        <Route path="/servicos/apps" element={<Apps />} />
+      </Routes>
+    </Router>
   );
 }
-

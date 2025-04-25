@@ -1,42 +1,56 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 
-const services = [
-  {
-    title: "Manutenção de Computadores",
-    description: "Formatamos, limpamos e otimizamos seu equipamento para máximo desempenho.",
-    image: "https://www.findup.com.br/wp-content/uploads/2020/11/iStock-625135580.jpg"
-  },
-  {
-    title: "Criação de Sites",
-    description: "Desenvolvimento de sites responsivos, modernos e rápidos para sua presença online.",
-    image: "https://ribnet.com.br/wp-content/uploads/2021/09/banner-criacao-de-sites-1.png"
-  },
-  {
-    title: "Desenvolvimento de Aplicativos",
-    description: "Aplicativos personalizados para Android, iOS e web com performance e design.",
-    image: "https://source.unsplash.com/600x400/?app,development"
-  }
-];
-
-export default function Services() {
+const Services = () => {
   return (
-    <section id="servicos" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">Nossos Serviços</h2>
-        <p className="text-lg text-gray-700">Confira como podemos te ajudar:</p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-        {services.map((service, index) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-            <img src={service.image} alt={service.title} className="w-full h-48 object-cover scale-110" />
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+    <section id="services" className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12 text-green-700">
+          Nossos Serviços
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Link to="/servicos/manutencao" className="block">
+            <div className="bg-white border-2 border-green-500 shadow-lg rounded-xl overflow-hidden transition transform hover:scale-105 active:scale-95 cursor-pointer">
+              <img src="https://www.findup.com.br/wp-content/uploads/2020/11/iStock-625135580.jpg" alt="Manutenção" className="w-full h-48 object-cover" />
+              <div className="p-4 flex flex-col gap-2">
+                <h3 className="text-xl font-semibold">Manutenção de Computadores</h3>
+                <p className="text-gray-600">Formatamos, limpamos e otimizamos seu PC.</p>
+                <span className="text-green-600 font-medium mt-2 flex items-center">
+                  Ver detalhes <span className="ml-2">→</span>
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          </Link>
+
+          <Link to="/servicos/sites" className="block">
+            <div className="bg-white border-2 border-green-500 shadow-lg rounded-xl overflow-hidden transition transform hover:scale-105 active:scale-95 cursor-pointer">
+              <img src="https://ribnet.com.br/wp-content/uploads/2021/09/banner-criacao-de-sites-1.png" alt="Criação de Sites" className="w-full h-48 object-cover" />
+              <div className="p-4 flex flex-col gap-2">
+                <h3 className="text-xl font-semibold">Criação de Sites</h3>
+                <p className="text-gray-600">Sites profissionais, modernos e responsivos.</p>
+                <span className="text-green-600 font-medium mt-2 flex items-center">
+                  Ver detalhes <span className="ml-2">→</span>
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          <Link to="/servicos/apps" className="block">
+            <div className="bg-white border-2 border-green-500 shadow-lg rounded-xl overflow-hidden transition transform hover:scale-105 active:scale-95 cursor-pointer">
+              <img src="https://img.freepik.com/vetores-gratis/banner-de-desenvolvimento-de-aplicativos_33099-1720.jpg" alt="Desenvolvimento de Apps" className="w-full h-48 object-cover" />
+              <div className="p-4 flex flex-col gap-2">
+                <h3 className="text-xl font-semibold">Desenvolvimento de Apps</h3>
+                <p className="text-gray-600">Aplicativos para Android sob medida para sua ideia.</p>
+                <span className="text-green-600 font-medium mt-2 flex items-center">
+                  Ver detalhes <span className="ml-2">→</span>
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Services;
