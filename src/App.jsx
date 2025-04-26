@@ -16,6 +16,7 @@ import Contact from "./assets/components/Contact";
 import Footer from "./assets/components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 export default function App() {
   useEffect(() => {
@@ -23,41 +24,45 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+        document
+          .querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
       });
     });
   }, []);
 
   return (
-    <Router>
-      <Routes>
-        {/* Página inicial com todas as seções */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar />
-              <Hero />
-              <Sobre />
-              <Services />
-              <Diferenciais />
-              <Portfolio />
-              <Testimonials />
-              <FAQ />
-              <ComoNosEncontrar /> {/* <- adicionado aqui */}
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-        {/* Rotas individuais dos serviços */}
-        <Route path="/servicos/manutencao" element={<Manutencao />} />
-        <Route path="/servicos/sites" element={<Sites />} />
-        <Route path="/servicos/apps" element={<Apps />} />
-      </Routes>
-    </Router>
+    <ParallaxProvider>
+      <Router>
+        <Routes>
+          {/* Página inicial com todas as seções */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <Hero />
+                <Sobre />
+                <Services />
+                <Diferenciais />
+                <Portfolio />
+                <Testimonials />
+                <FAQ />
+                <ComoNosEncontrar />
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
+          {/* Rotas individuais dos serviços */}
+          <Route path="/servicos/manutencao" element={<Manutencao />} />
+          <Route path="/servicos/sites" element={<Sites />} />
+          <Route path="/servicos/apps" element={<Apps />} />
+        </Routes>
+      </Router>
+    </ParallaxProvider>
   );
 }
