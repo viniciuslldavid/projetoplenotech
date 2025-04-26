@@ -9,66 +9,73 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md w-full fixed top-0 z-50 h-12">
-      <div className="w-full pr-4 py-1 flex items-center justify-between">
-        {/* Logo à esquerda */}
+    <nav
+      className="bg-white shadow-md w-full fixed top-0 z-50 py-4 px-6"
+      data-aos="fade-down"
+    >
+      <div className="flex items-center justify-between">
+        {/* Logo posicionada à esquerda */}
         <div className="flex items-center">
           <img
             src={logo}
-            alt="PlenoTech Logo"
-            className="h-9 w-auto max-h-9 object-contain md:h-6 md:max-h-6"
+            alt="Logo Plenotech"
+            className="h-6 md:h-8 w-auto max-h-10 object-contain"
           />
         </div>
 
-        {/* Botão hamburguer para mobile */}
+        {/* Botão hamburger (aparece no mobile) */}
         <button
-          className="sm:block md:hidden text-gray-800 focus:outline-none"
-          onClick={toggleMenu}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
+  className="md:hidden focus:outline-none"
+  onClick={toggleMenu}
+  aria-label="Abrir menu"
+>
+  <div className="space-y-1.5 w-6 h-6 flex flex-col justify-center items-center transition-all duration-300 ease-in-out">
+    <span
+      className={`block h-0.5 w-full bg-gray-800 transform transition duration-300 ease-in-out ${
+        isOpen ? "rotate-45 translate-y-1.5" : ""
+      }`}
+    />
+    <span
+      className={`block h-0.5 w-full bg-gray-800 transition-opacity duration-300 ease-in-out ${
+        isOpen ? "opacity-0" : "opacity-100"
+      }`}
+    />
+    <span
+      className={`block h-0.5 w-full bg-gray-800 transform transition duration-300 ease-in-out ${
+        isOpen ? "-rotate-45 -translate-y-1.5" : ""
+      }`}
+    />
+  </div>
+</button>
 
-        {/* Links de navegação */}
+
+        {/* Menu de navegação */}
         <ul
-          className={`${
-            isOpen ? "block" : "hidden"
-          } md:flex md:space-x-8 text-sm font-medium text-gray-800 absolute md:static top-12 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}
+          className={`${isOpen ? "block" : "hidden"
+            } md:flex md:space-x-8 text-base font-medium text-gray-800 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}
         >
-          <li className="md:inline-block block mb-2 md:mb-0">
-            <a href="#inicio" className="hover:text-blue-500">
+          <li className="md:inline-block block mb-2 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+            <a href="#inicio" className="hover:text-green-600 transition-colors duration-200">
               Início
             </a>
           </li>
-          <li className="md:inline-block block mb-2 md:mb-0">
-            <a href="#sobre" className="hover:text-blue-500">
+          <li className="md:inline-block block mb-2 md:mb-0" data-aos="fade-up" data-aos-delay="200">
+            <a href="#sobre" className="hover:text-green-600 transition-colors duration-200">
               Sobre
             </a>
           </li>
-          <li className="md:inline-block block mb-2 md:mb-0">
-            <a href="#servicos" className="hover:text-blue-500">
+          <li className="md:inline-block block mb-2 md:mb-0" data-aos="fade-up" data-aos-delay="300">
+            <a href="#servicos" className="hover:text-green-600 transition-colors duration-200">
               Serviços
             </a>
           </li>
-          <li className="md:inline-block block mb-2 md:mb-0">
-            <a href="#portfolio" className="hover:text-blue-500">
+          <li className="md:inline-block block mb-2 md:mb-0" data-aos="fade-up" data-aos-delay="400">
+            <a href="#portfolio" className="hover:text-green-600 transition-colors duration-200">
               Portfólio
             </a>
           </li>
-          <li className="md:inline-block block mb-2 md:mb-0">
-            <a href="#contato" className="hover:text-blue-500">
+          <li className="md:inline-block block mb-2 md:mb-0" data-aos="fade-up" data-aos-delay="500">
+            <a href="#contato" className="hover:text-green-600 transition-colors duration-200">
               Contato
             </a>
           </li>
